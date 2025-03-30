@@ -2,11 +2,11 @@
 
 /**
  * Plugin Name: WooCommerce Purchase Price & Profit
- * Plugin URI: https://tudominio.com
+ * Plugin URI: https://www.francojuandavid.com/
  * Description: Registra el precio de compra de productos y calcula las ganancias netas en WooCommerce para AutoAzul y ZZContigo
  * Version: 1.0.0
  * Author: Juan David Franco
- * Author URI: https://tudominio.com
+ * Author URI: https://www.francojuandavid.com/
  * Text Domain: wc-purchase-price
  * Domain Path: /languages
  * WC requires at least: 4.0.0
@@ -82,11 +82,11 @@ class WC_Purchase_Price
         if (!class_exists('WooCommerce')) {
             add_action('admin_notices', function () {
 ?>
-                <div class="error">
-                    <p><?php _e('El plugin "WooCommerce Purchase Price & Profit" requiere que WooCommerce esté instalado y activado.', 'wc-purchase-price'); ?>
-                    </p>
-                </div>
-        <?php
+<div class="error">
+    <p><?php _e('El plugin "WooCommerce Purchase Price & Profit" requiere que WooCommerce esté instalado y activado.', 'wc-purchase-price'); ?>
+    </p>
+</div>
+<?php
             });
             deactivate_plugins(plugin_basename(__FILE__));
         }
@@ -384,104 +384,104 @@ class WC_Purchase_Price
 
         // Renderizar la página
         ?>
-        <div class="wrap">
-            <h1><?php _e('Informe de Ganancias', 'wc-purchase-price'); ?></h1>
+<div class="wrap">
+    <h1><?php _e('Informe de Ganancias', 'wc-purchase-price'); ?></h1>
 
-            <div class="tablenav top">
-                <form method="get">
-                    <input type="hidden" name="page" value="wc-profit-report">
+    <div class="tablenav top">
+        <form method="get">
+            <input type="hidden" name="page" value="wc-profit-report">
 
-                    <div class="alignleft actions">
-                        <label for="start_date"
-                            style="display: inline-block; margin-right: 5px;"><?php _e('Desde:', 'wc-purchase-price'); ?></label>
-                        <input type="date" id="start_date" name="start_date" value="<?php echo esc_attr($start_date); ?>"
-                            class="regular-text">
+            <div class="alignleft actions">
+                <label for="start_date"
+                    style="display: inline-block; margin-right: 5px;"><?php _e('Desde:', 'wc-purchase-price'); ?></label>
+                <input type="date" id="start_date" name="start_date" value="<?php echo esc_attr($start_date); ?>"
+                    class="regular-text">
 
-                        <label for="end_date"
-                            style="display: inline-block; margin: 0 5px 0 15px;"><?php _e('Hasta:', 'wc-purchase-price'); ?></label>
-                        <input type="date" id="end_date" name="end_date" value="<?php echo esc_attr($end_date); ?>"
-                            class="regular-text">
+                <label for="end_date"
+                    style="display: inline-block; margin: 0 5px 0 15px;"><?php _e('Hasta:', 'wc-purchase-price'); ?></label>
+                <input type="date" id="end_date" name="end_date" value="<?php echo esc_attr($end_date); ?>"
+                    class="regular-text">
 
-                        <button type="submit" class="button action"><?php _e('Filtrar', 'wc-purchase-price'); ?></button>
-                    </div>
-                </form>
-
-                <div class="alignright">
-                    <button id="export-profit-report"
-                        class="button button-primary"><?php _e('Exportar CSV', 'wc-purchase-price'); ?></button>
-                </div>
-                <br class="clear">
+                <button type="submit" class="button action"><?php _e('Filtrar', 'wc-purchase-price'); ?></button>
             </div>
+        </form>
 
-            <div class="profit-summary"
-                style="margin-bottom: 20px; background: #fff; padding: 15px; border: 1px solid #ccd0d4;">
-                <h2><?php _e('Resumen', 'wc-purchase-price'); ?></h2>
-                <div class="summary-data" style="display: flex; justify-content: space-between; max-width: 600px;">
-                    <div class="summary-item">
-                        <h3><?php _e('Ingresos totales', 'wc-purchase-price'); ?></h3>
-                        <p class="amount"><?php echo wc_price($total_revenue); ?></p>
-                    </div>
-                    <div class="summary-item">
-                        <h3><?php _e('Costos totales', 'wc-purchase-price'); ?></h3>
-                        <p class="amount"><?php echo wc_price($total_cost); ?></p>
-                    </div>
-                    <div class="summary-item">
-                        <h3><?php _e('Ganancia neta', 'wc-purchase-price'); ?></h3>
-                        <p class="amount"><?php echo wc_price($total_profit); ?></p>
-                    </div>
-                    <div class="summary-item">
-                        <h3><?php _e('Margen', 'wc-purchase-price'); ?></h3>
-                        <p class="amount">
-                            <?php echo ($total_revenue > 0) ? number_format(($total_profit / $total_revenue * 100), 2) . '%' : '0%'; ?>
-                        </p>
-                    </div>
-                </div>
+        <div class="alignright">
+            <button id="export-profit-report"
+                class="button button-primary"><?php _e('Exportar CSV', 'wc-purchase-price'); ?></button>
+        </div>
+        <br class="clear">
+    </div>
+
+    <div class="profit-summary"
+        style="margin-bottom: 20px; background: #fff; padding: 15px; border: 1px solid #ccd0d4;">
+        <h2><?php _e('Resumen', 'wc-purchase-price'); ?></h2>
+        <div class="summary-data" style="display: flex; justify-content: space-between; max-width: 600px;">
+            <div class="summary-item">
+                <h3><?php _e('Ingresos totales', 'wc-purchase-price'); ?></h3>
+                <p class="amount"><?php echo wc_price($total_revenue); ?></p>
             </div>
+            <div class="summary-item">
+                <h3><?php _e('Costos totales', 'wc-purchase-price'); ?></h3>
+                <p class="amount"><?php echo wc_price($total_cost); ?></p>
+            </div>
+            <div class="summary-item">
+                <h3><?php _e('Ganancia neta', 'wc-purchase-price'); ?></h3>
+                <p class="amount"><?php echo wc_price($total_profit); ?></p>
+            </div>
+            <div class="summary-item">
+                <h3><?php _e('Margen', 'wc-purchase-price'); ?></h3>
+                <p class="amount">
+                    <?php echo ($total_revenue > 0) ? number_format(($total_profit / $total_revenue * 100), 2) . '%' : '0%'; ?>
+                </p>
+            </div>
+        </div>
+    </div>
 
-            <table class="wp-list-table widefat fixed striped">
-                <thead>
-                    <tr>
-                        <th><?php _e('Producto', 'wc-purchase-price'); ?></th>
-                        <th><?php _e('SKU', 'wc-purchase-price'); ?></th>
-                        <th><?php _e('Cantidad', 'wc-purchase-price'); ?></th>
-                        <th><?php _e('Ingresos', 'wc-purchase-price'); ?></th>
-                        <th><?php _e('Costo', 'wc-purchase-price'); ?></th>
-                        <th><?php _e('Ganancia', 'wc-purchase-price'); ?></th>
-                        <th><?php _e('Margen', 'wc-purchase-price'); ?></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php if (empty($products_data)) : ?>
-                        <tr>
-                            <td colspan="7">
-                                <?php _e('No hay datos disponibles para el período seleccionado.', 'wc-purchase-price'); ?></td>
-                        </tr>
-                    <?php else : ?>
-                        <?php foreach ($products_data as $product_data) : ?>
-                            <tr>
-                                <td>
-                                    <a href="<?php echo get_edit_post_link($product_data['id']); ?>">
-                                        <?php echo esc_html($product_data['name']); ?>
-                                    </a>
-                                </td>
-                                <td><?php echo esc_html($product_data['sku']); ?></td>
-                                <td><?php echo esc_html($product_data['quantity']); ?></td>
-                                <td><?php echo wc_price($product_data['revenue']); ?></td>
-                                <td><?php echo wc_price($product_data['cost']); ?></td>
-                                <td><?php echo wc_price($product_data['profit']); ?></td>
-                                <td>
-                                    <?php
+    <table class="wp-list-table widefat fixed striped">
+        <thead>
+            <tr>
+                <th><?php _e('Producto', 'wc-purchase-price'); ?></th>
+                <th><?php _e('SKU', 'wc-purchase-price'); ?></th>
+                <th><?php _e('Cantidad', 'wc-purchase-price'); ?></th>
+                <th><?php _e('Ingresos', 'wc-purchase-price'); ?></th>
+                <th><?php _e('Costo', 'wc-purchase-price'); ?></th>
+                <th><?php _e('Ganancia', 'wc-purchase-price'); ?></th>
+                <th><?php _e('Margen', 'wc-purchase-price'); ?></th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php if (empty($products_data)) : ?>
+            <tr>
+                <td colspan="7">
+                    <?php _e('No hay datos disponibles para el período seleccionado.', 'wc-purchase-price'); ?></td>
+            </tr>
+            <?php else : ?>
+            <?php foreach ($products_data as $product_data) : ?>
+            <tr>
+                <td>
+                    <a href="<?php echo get_edit_post_link($product_data['id']); ?>">
+                        <?php echo esc_html($product_data['name']); ?>
+                    </a>
+                </td>
+                <td><?php echo esc_html($product_data['sku']); ?></td>
+                <td><?php echo esc_html($product_data['quantity']); ?></td>
+                <td><?php echo wc_price($product_data['revenue']); ?></td>
+                <td><?php echo wc_price($product_data['cost']); ?></td>
+                <td><?php echo wc_price($product_data['profit']); ?></td>
+                <td>
+                    <?php
                                     $margin = ($product_data['revenue'] > 0) ? ($product_data['profit'] / $product_data['revenue'] * 100) : 0;
                                     echo number_format($margin, 2) . '%';
                                     ?>
-                                </td>
-                            </tr>
-                        <?php endforeach; ?>
-                    <?php endif; ?>
-                </tbody>
-            </table>
-        </div>
-    <?php
+                </td>
+            </tr>
+            <?php endforeach; ?>
+            <?php endif; ?>
+        </tbody>
+    </table>
+</div>
+<?php
     }
 
     /**
@@ -516,94 +516,94 @@ class WC_Purchase_Price
 
         // Renderizar la página
     ?>
-        <div class="wrap">
-            <h1><?php _e('Informe de Capital e Inventario', 'wc-purchase-price'); ?></h1>
+<div class="wrap">
+    <h1><?php _e('Informe de Capital e Inventario', 'wc-purchase-price'); ?></h1>
 
-            <div class="capital-summary"
-                style="margin-bottom: 20px; background: #fff; padding: 15px; border: 1px solid #ccd0d4;">
-                <h2><?php _e('Resumen de Capital', 'wc-purchase-price'); ?></h2>
-                <div class="summary-data" style="display: flex; justify-content: space-between; max-width: 800px;">
-                    <div class="summary-item">
-                        <h3><?php _e('Capital Invertido Total', 'wc-purchase-price'); ?></h3>
-                        <p class="amount"><?php echo wc_price($inventory_data['total_investment']); ?></p>
-                    </div>
-                    <div class="summary-item">
-                        <h3><?php _e('Valor de Venta Total', 'wc-purchase-price'); ?></h3>
-                        <p class="amount"><?php echo wc_price($inventory_data['total_value']); ?></p>
-                    </div>
-                    <div class="summary-item">
-                        <h3><?php _e('Ganancia Potencial', 'wc-purchase-price'); ?></h3>
-                        <p class="amount"><?php echo wc_price($inventory_data['total_profit']); ?></p>
-                    </div>
-                    <div class="summary-item">
-                        <h3><?php _e('Margen Promedio', 'wc-purchase-price'); ?></h3>
-                        <p class="amount"><?php echo number_format($inventory_data['average_margin'], 2) . '%'; ?></p>
-                    </div>
-                </div>
+    <div class="capital-summary"
+        style="margin-bottom: 20px; background: #fff; padding: 15px; border: 1px solid #ccd0d4;">
+        <h2><?php _e('Resumen de Capital', 'wc-purchase-price'); ?></h2>
+        <div class="summary-data" style="display: flex; justify-content: space-between; max-width: 800px;">
+            <div class="summary-item">
+                <h3><?php _e('Capital Invertido Total', 'wc-purchase-price'); ?></h3>
+                <p class="amount"><?php echo wc_price($inventory_data['total_investment']); ?></p>
             </div>
-
-            <div class="inventory-actions" style="margin-bottom: 20px;">
-                <button id="export-inventory-report"
-                    class="button button-primary"><?php _e('Exportar CSV', 'wc-purchase-price'); ?></button>
+            <div class="summary-item">
+                <h3><?php _e('Valor de Venta Total', 'wc-purchase-price'); ?></h3>
+                <p class="amount"><?php echo wc_price($inventory_data['total_value']); ?></p>
             </div>
-
-            <table class="wp-list-table widefat fixed striped">
-                <thead>
-                    <tr>
-                        <th><?php _e('Producto', 'wc-purchase-price'); ?></th>
-                        <th><?php _e('SKU', 'wc-purchase-price'); ?></th>
-                        <th><?php _e('Stock', 'wc-purchase-price'); ?></th>
-                        <th><?php _e('Precio de Compra', 'wc-purchase-price'); ?></th>
-                        <th><?php _e('Precio de Venta', 'wc-purchase-price'); ?></th>
-                        <th><?php _e('Inversión', 'wc-purchase-price'); ?></th>
-                        <th><?php _e('Valor', 'wc-purchase-price'); ?></th>
-                        <th><?php _e('Ganancia Potencial', 'wc-purchase-price'); ?></th>
-                        <th><?php _e('Margen', 'wc-purchase-price'); ?></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php if (empty($inventory_data['products'])) : ?>
-                        <tr>
-                            <td colspan="9">
-                                <?php _e('No hay productos con datos de precio de compra y stock.', 'wc-purchase-price'); ?></td>
-                        </tr>
-                    <?php else : ?>
-                        <?php foreach ($inventory_data['products'] as $product) : ?>
-                            <tr>
-                                <td>
-                                    <a href="<?php echo get_edit_post_link($product['id']); ?>">
-                                        <?php echo esc_html($product['name']); ?>
-                                    </a>
-                                </td>
-                                <td><?php echo esc_html($product['sku']); ?></td>
-                                <td><?php echo esc_html($product['stock']); ?></td>
-                                <td><?php echo wc_price($product['purchase_price']); ?></td>
-                                <td><?php echo wc_price($product['sale_price']); ?></td>
-                                <td><?php echo wc_price($product['investment']); ?></td>
-                                <td><?php echo wc_price($product['value']); ?></td>
-                                <td><?php echo wc_price($product['profit']); ?></td>
-                                <td><?php echo number_format($product['margin'], 2) . '%'; ?></td>
-                            </tr>
-                        <?php endforeach; ?>
-                    <?php endif; ?>
-                </tbody>
-            </table>
+            <div class="summary-item">
+                <h3><?php _e('Ganancia Potencial', 'wc-purchase-price'); ?></h3>
+                <p class="amount"><?php echo wc_price($inventory_data['total_profit']); ?></p>
+            </div>
+            <div class="summary-item">
+                <h3><?php _e('Margen Promedio', 'wc-purchase-price'); ?></h3>
+                <p class="amount"><?php echo number_format($inventory_data['average_margin'], 2) . '%'; ?></p>
+            </div>
         </div>
+    </div>
 
-        <script type="text/javascript">
-            jQuery(document).ready(function($) {
-                $('#export-inventory-report').on('click', function() {
-                    var data = {
-                        action: 'export_inventory_report',
-                        nonce: wc_purchase_price.nonce
-                    };
+    <div class="inventory-actions" style="margin-bottom: 20px;">
+        <button id="export-inventory-report"
+            class="button button-primary"><?php _e('Exportar CSV', 'wc-purchase-price'); ?></button>
+    </div>
 
-                    // Redirigir para la descarga
-                    var url = wc_purchase_price.ajax_url + '?' + $.param(data);
-                    window.location.href = url;
-                });
-            });
-        </script>
+    <table class="wp-list-table widefat fixed striped">
+        <thead>
+            <tr>
+                <th><?php _e('Producto', 'wc-purchase-price'); ?></th>
+                <th><?php _e('SKU', 'wc-purchase-price'); ?></th>
+                <th><?php _e('Stock', 'wc-purchase-price'); ?></th>
+                <th><?php _e('Precio de Compra', 'wc-purchase-price'); ?></th>
+                <th><?php _e('Precio de Venta', 'wc-purchase-price'); ?></th>
+                <th><?php _e('Inversión', 'wc-purchase-price'); ?></th>
+                <th><?php _e('Valor', 'wc-purchase-price'); ?></th>
+                <th><?php _e('Ganancia Potencial', 'wc-purchase-price'); ?></th>
+                <th><?php _e('Margen', 'wc-purchase-price'); ?></th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php if (empty($inventory_data['products'])) : ?>
+            <tr>
+                <td colspan="9">
+                    <?php _e('No hay productos con datos de precio de compra y stock.', 'wc-purchase-price'); ?></td>
+            </tr>
+            <?php else : ?>
+            <?php foreach ($inventory_data['products'] as $product) : ?>
+            <tr>
+                <td>
+                    <a href="<?php echo get_edit_post_link($product['id']); ?>">
+                        <?php echo esc_html($product['name']); ?>
+                    </a>
+                </td>
+                <td><?php echo esc_html($product['sku']); ?></td>
+                <td><?php echo esc_html($product['stock']); ?></td>
+                <td><?php echo wc_price($product['purchase_price']); ?></td>
+                <td><?php echo wc_price($product['sale_price']); ?></td>
+                <td><?php echo wc_price($product['investment']); ?></td>
+                <td><?php echo wc_price($product['value']); ?></td>
+                <td><?php echo wc_price($product['profit']); ?></td>
+                <td><?php echo number_format($product['margin'], 2) . '%'; ?></td>
+            </tr>
+            <?php endforeach; ?>
+            <?php endif; ?>
+        </tbody>
+    </table>
+</div>
+
+<script type="text/javascript">
+jQuery(document).ready(function($) {
+    $('#export-inventory-report').on('click', function() {
+        var data = {
+            action: 'export_inventory_report',
+            nonce: wc_purchase_price.nonce
+        };
+
+        // Redirigir para la descarga
+        var url = wc_purchase_price.ajax_url + '?' + $.param(data);
+        window.location.href = url;
+    });
+});
+</script>
 <?php
     }
 
